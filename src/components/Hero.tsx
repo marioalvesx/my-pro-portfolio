@@ -24,7 +24,7 @@ export default function Hero() {
           <div className="flex justify-between gap-x-8">
             <div className="flex max-w-[620px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left">
               <h1 className="heroName mb-4">
-                Hello, I am Mario Alves Web Developer & entrepreneur
+                Hello, I am Mario Alves <br /> Web Developer & entrepreneur
               </h1>
               <p className="subtitle max-w-[490px] mx-auto xl:mx-0">
                 Uniting creative design and code to build great ideas.

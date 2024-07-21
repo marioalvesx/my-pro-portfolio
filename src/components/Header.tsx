@@ -26,15 +26,7 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className={`${
-          header
-            ? "mx-auto items-center justify-between gap-20 px-8 py-8 xl:px-0 flex-row-reverse lg:flex-row py-4 bg-white shadow-lg dark:bg-accent"
-            : "mx-auto items-center justify-between gap-20 px-8 py-8 xl:px-0 flex-row-reverse lg:flex-row py-6 dark:bg-transparent"
-        } sticky top-0 z-30 transition-all ${
-          pathname === "/" && 'bg-[#fef9f5"]'
-        }`}
-      >
+      <header className="mx-auto items-center justify-between gap-20 px-8 py-8 xl:px-0 flex-row-reverse lg:flex-row py-4 dark:bg-transparent">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
             <Logo />

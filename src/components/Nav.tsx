@@ -11,7 +11,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
-import { RiArrowRightLine } from "react-icons/ri";
 import { cn } from "@/lib/utils";
 
 const links = [
