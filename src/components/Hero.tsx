@@ -1,10 +1,8 @@
+"use client";
+
 import React from "react";
 import { Send, NotebookText } from "lucide-react";
 
-import { RiArrowDownSLine } from "react-icons/ri";
-
-import DevImg from "./DevImg";
-import Badge from "./Badge";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import {
@@ -15,19 +13,24 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import { Card, CardContent } from "./ui/card";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
+  const { translations } = useLanguage();
+
   return (
     <>
       <section className="py-12 xl:pt-5 bg-hero bg-no-repeat bg-bottom dark:bg-none">
         <div className="container mx-auto pl-0 pr-0">
           <div className="flex justify-between gap-x-8">
-            <div className="flex max-w-[620px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left">
+            <div className="flex max-w-[720px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left">
               <h1 className="heroName mb-4">
-                Hello, I am Mario Alves <br /> Web Developer & entrepreneur
+                {translations.welcome}
+                <br />
+                {translations["welcome.message.two"]}
               </h1>
-              <p className="subtitle max-w-[490px] mx-auto xl:mx-0">
-                Uniting creative design and code to build great ideas.
+              <p className="subtitle max-w-[530px] mx-auto xl:mx-0">
+                {translations["welcome.message.three"]}
               </p>
               <div className="flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0">
                 <Link href="/contact">

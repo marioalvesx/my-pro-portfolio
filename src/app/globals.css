@@ -76,7 +76,7 @@
 }
 
 .heroName {
-  @apply text-6xl xl:text-[2.8rem] xl:leading-[80px] tracking-[-2px] font-bold;
+  @apply text-6xl xl:text-[3rem] xl:leading-[55px] tracking-[1px] font-bold;
 }
 
 .h1 {

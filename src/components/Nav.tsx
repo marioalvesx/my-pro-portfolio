@@ -30,7 +30,7 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
   const about: { title: string; href: string; description: string }[] = [
     {
       title: "About me",
-      href: "/about", // Corrected the href to point to the correct about page
+      href: "/about",
       description: "Learn more about me and what I do.",
     },
     {
