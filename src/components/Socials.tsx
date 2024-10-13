@@ -15,26 +15,32 @@ const icons = [
   {
     path: "/",
     name: <RiInstagramFill />,
+    title: "Instagram",
   },
   {
     path: "/",
     name: <RiGithubFill />,
+    title: "Github",
   },
   {
     path: "/",
     name: <RiTwitterXFill />,
+    title: "X",
   },
   {
     path: "/",
     name: <RiLinkedinFill />,
+    title: "LinkedIn",
   },
   {
     path: "/",
     name: <RiDiscordFill />,
+    title: "Discord",
   },
   {
     path: "/",
     name: <RiSteamFill />,
+    title: "Steam",
   },
 ];
 
@@ -48,7 +54,7 @@ const Socials = ({ containerStyles, iconsStyles }: SocialsProps) => {
     <div className={`${containerStyles}`}>
       {icons.map((icon, index) => {
         return (
-          <Link href={icon.path} key={index}>
+          <Link title={icon.title} href={icon.path} key={index}>
             <div className={`${iconsStyles}`}>{icon.name}</div>
           </Link>
         );

@@ -1,16 +1,14 @@
-import Link from "next/link";
 import React from "react";
-import Image from "next/image";
-import logo from "../../../app/projects/assets/logo/portfolioLogo.svg";
+import { CodeIcon, CaretLeftIcon, CaretRightIcon } from "@radix-ui/react-icons";
 
 function Logo() {
   return (
     <div className="flex flex-direction-column items-center gap-2">
-      <a className="flex items-center gap-2" href="/">
-        <span className="text-3xl lg:text-5xl">*dev</span>
-        <span className="hidden text-base lg:block text-center mt-2">
-          Marioalves
-        </span>
+      <a className="flex items-center gap-4" href="/">
+        <div className="h-12 w-12">
+          <CodeIcon width={50} height={50} />
+        </div>
+        <span className="text-5xl lg:text-5xl">.dev</span>
       </a>
     </div>
   );

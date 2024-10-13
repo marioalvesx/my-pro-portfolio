@@ -91,15 +91,25 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/blog" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link
+                href="https://medium.com/@marioalvesneto"
+                legacyBehavior
+                passHref
+              >
+                <NavigationMenuLink
+                  target="_blank"
+                  className={navigationMenuTriggerStyle()}
+                >
                   Blog
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link href="https://tally.so/r/mOLbDg" legacyBehavior passHref>
+                <NavigationMenuLink
+                  target="_blank"
+                  className={navigationMenuTriggerStyle()}
+                >
                   Contact
                 </NavigationMenuLink>
               </Link>

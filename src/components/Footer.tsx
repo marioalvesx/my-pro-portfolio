@@ -4,24 +4,7 @@ import Socials from "./Socials";
 const Footer = () => {
   return (
     <footer className="mx-auto flex max-w-5xl flex-col justify-start gap-4 overflow-hidden py-8 px-5 lg:px-0">
-      <div className="rounded-xl border text-card-foreground shadow bg-[#121212]">
-        <div className="space-y-1.5 p-6 flex flex-col gap-2">
-          <span className="uppercase font-bold dark:text-white text-lg text-white">
-            LET'S BUILD SOMETHING TOGETHER?
-          </span>
-          <p className="text-sm text-muted-foreground">
-            <span>
-              If you have any idea in mind, feel free to send me a message.
-            </span>
-          </p>
-        </div>
-        <div className="p-6 pt-0">
-          <a title="Talk with me" href="/">
-            <button className="inline-flex justify-center whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 items-center gap-1 rounded-full p-5 text-base hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out">
-              Talk to me
-            </button>
-          </a>
-        </div>
+      <div className="rounded-xl border text-card-foreground shadow bg-footer-background">
         <div className="items-center m-0 flex justify-center p-5">
           <Socials
             containerStyles="grid grid-cols-5 items-center gap-3 md:flex md:gap-2"
