@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export default function about() {
+export default function About() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
