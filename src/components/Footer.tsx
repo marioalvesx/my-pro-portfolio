@@ -4,7 +4,7 @@ import Socials from "./Socials";
 const Footer = () => {
   return (
     <footer className="mx-auto flex max-w-5xl flex-col justify-start gap-4 overflow-hidden py-8 px-5 lg:px-0">
-      <div className="rounded-xl border text-card-foreground shadow bg-footer-background">
+      <div className="text-card-foreground shadow bg-footer-background">
         <div className="items-center m-0 flex justify-center p-5">
           <Socials
             containerStyles="grid grid-cols-5 items-center gap-3 md:flex md:gap-2"
@@ -18,7 +18,7 @@ const Footer = () => {
         ></div>
         <div className="items-center m-0 flex justify-center p-5">
           <span className="text-sm text-muted-foreground">
-            ©2024 Mario Alves
+            ©2024 - Mario Alves
           </span>
         </div>
       </div>

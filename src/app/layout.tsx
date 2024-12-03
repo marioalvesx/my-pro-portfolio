@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 // ThemeProvider
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const font = GeistSans;
-// const manrope
+const font = GeistMono;
+font.style.fontWeight = 600;
 
 export const meta: Metadata = {
   title: "Mario Alves",

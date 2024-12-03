@@ -2,18 +2,19 @@
 
 import { Input } from "@/components/ui/input";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Image from "next/image";
 
 // Files
-import project1 from "./assets/images/githubExplorer.svg";
-import project2 from "./assets/images/hypedsneakers.svg";
+import githubExplorer from "./assets/images/githubExplorer.svg";
+import hypedSneakers from "./assets/images/hypedsneakers.svg";
+import loginPage from "./assets/images/animatedLoginPage.svg";
+import Image from "next/image";
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  imageUrl: string;
+  image: string;
+  link: string;
 }
 
 const fetchProjects: Project[] = [
@@ -22,14 +23,23 @@ const fetchProjects: Project[] = [
     title: "Github Explorer",
     description:
       "Busque pelo nome de qualquer usuário do Github e explore seus projetos.",
-    imageUrl: project1,
+    image: githubExplorer,
+    link: "https://githubxplorer.netlify.app/",
   },
   {
     id: 2,
     title: "Hyped Sneakers",
     description:
       "E-commerce minimalista e experimental dos sneakers mais famosos e bem conceituados do mercado.",
-    imageUrl: project2,
+    image: hypedSneakers,
+    link: "https://hypedsneakersbr.netlify.app/",
+  },
+  {
+    id: 3,
+    title: "Login animado",
+    description: "Página de login animada.",
+    image: loginPage,
+    link: "https://github.com/marioalvesx/login-page",
   },
 ];
 
@@ -77,20 +87,35 @@ const Projects = () => {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-10 items-center px-5">
+      <div className="grid grid-cols-2 gap-10 items-center px-1">
         {projects.map((project) => (
-          <>
-            <div key="1" className="relative w-full max-w-3xl mx-auto">
+          <div
+            key={project.id}
+            className="rounded-xl border bg-card text-card-foreground shadow h-full flex flex-col overflow-hidden group hover:shadow-lg hover:cursor-pointer transition-shadow duration-300 relative"
+            onClick={() => window.open(project.link, "_blank")}
+          >
+            <div className="flex flex-col space-y-1.0 p-0">
               <Image
-                src={project.imageUrl}
-                alt="MacBook"
-                layout="responsive"
-                width={800}
-                height={450}
-                className="w-full h-full m-0 hover:scale-105 transform transition-all duration-500 ease-in-out"
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                width="500"
+                height="300"
+                decoding="async"
+                className="rounded-md"
+                style={{ color: "transparent" }}
               />
+              <div className="absolute h-[600px] inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"></div>
             </div>
-          </>
+            <div className="flex flex-col flex-grow p-4">
+              <span className="w-full font-semibold tracking-tight text-xl mb-2 group-hover:text-primary transition-colors duration-300">
+                {project.title}
+              </span>
+              <span className="text-muted-foreground">
+                {project.description}
+              </span>
+            </div>
+          </div>
         ))}
       </div>
     </div>

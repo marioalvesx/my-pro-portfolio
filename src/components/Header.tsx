@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="mx-auto items-center justify-between gap-20 px-4 py-4 xl:px-0 flex-row-reverse lg:flex-row py-4 dark:bg-transparent">
+      <header className="mx-auto items-center justify-between gap-20 px-4 py-8 xl:px-0 flex-row-reverse lg:flex-row py-4 dark:bg-transparent">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
             <Logo />
@@ -46,11 +46,11 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <div
+      {/* <div
         data-orientation="horizontal"
         role="none"
         className="shrink-0 bg-border h-[1px] w-full"
-      ></div>
+      ></div> */}
     </>
   );
 };
