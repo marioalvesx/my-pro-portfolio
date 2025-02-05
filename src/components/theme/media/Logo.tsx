@@ -8,7 +8,6 @@ function Logo() {
         <div className="h-12 w-12">
           <CodeIcon width={50} height={50} />
         </div>
-        <span className="text-5xl lg:text-5xl">.dev</span>
       </a>
     </div>
   );

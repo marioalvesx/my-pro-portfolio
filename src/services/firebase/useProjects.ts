@@ -8,9 +8,6 @@ export function useProjects() {
   useEffect(() => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(collection(db, "projects"));
-      console.log(
-        querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-      );
 
       setProjects(
         querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))

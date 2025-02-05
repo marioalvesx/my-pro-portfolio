@@ -11,16 +11,7 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_APP_ID,
 };
 
-console.log("API Key:", process.env.NEXT_PUBLIC_API_KEY);
-console.log("API Key:", process.env.NEXT_PUBLIC_AUTH_DOMAIN);
-console.log("API Key:", process.env.NEXT_PUBLIC_PROJECT_ID);
-console.log("API Key:", process.env.NEXT_PUBLIC_STORAGE_BUCKET);
-console.log("API Key:", process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID);
-console.log("API Key:", process.env.NEXT_PUBLIC_APP_ID);
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-console.log(app);
-
 export const db = getFirestore(app);
 export const storage = getStorage(app);

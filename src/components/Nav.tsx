@@ -43,12 +43,12 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
   const resumes: { title: string; href: string; description: string }[] = [
     {
       title: "English resume",
-      href: "/",
+      href: "https://drive.google.com/file/d/1OyrZzybCqIYsJn-6zGuESfIblwy2jWeq/view?usp=sharing",
       description: "My professional resume in english.",
     },
     {
       title: "Portuguese resume",
-      href: "/",
+      href: "https://drive.google.com/file/d/1aJmyzgds7QExx1D5zM6EunGYTMbw-wHG/view?usp=sharing",
       description: "My professional resume in portuguese.",
     },
   ];
@@ -61,7 +61,7 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
             <NavigationMenuItem>
               <NavigationMenuTrigger>About</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="flex flex-col w-[300px] gap-3 p-4">
+                <ul className="flex flex-col w-[320px] gap-3 p-4">
                   {about.map((about) => (
                     <ListItem
                       key={about.title}

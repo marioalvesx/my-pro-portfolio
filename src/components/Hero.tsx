@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Send, NotebookText } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import {
@@ -17,6 +17,7 @@ import publication1 from "../app/projects/assets/images/mainProjectsImages/tdc-e
 import publication2 from "../app/projects/assets/images/mainProjectsImages/tdc-event-2.jpg";
 import publication3 from "../app/projects/assets/images/mainProjectsImages/tdc-event-3.jpg";
 import Image from "next/image";
+import ThemeToggler from "./ThemeToggler";
 
 export default function Hero() {
   const { translations } = useLanguage();
@@ -43,77 +44,72 @@ export default function Hero() {
 
   return (
     <>
-      <section className="py-12 xl:pt-5 bg-hero bg-no-repeat bg-bottom dark:bg-none">
-        <div className="container mx-auto pl-0 pr-0">
-          <div className="flex justify-between gap-x-8">
-            <div className="flex max-w-[720px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left">
-              <h1 className="heroName mb-4">
-                {translations.welcome}
-                <br />
-                {translations["welcome.message.two"]}
-              </h1>
-              <p className="subtitle max-w-[530px] mx-auto xl:mx-0">
-                {translations["welcome.message.three"]}
-              </p>
-              <div className="flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0">
-                <Link href="https://tally.so/r/mOLbDg" target="_blank">
-                  <Button className="inline-flex justify-center whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 items-center gap-1 rounded-full p-5 text-base hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out">
-                    Contact me <Send size={18} />
-                  </Button>
-                </Link>
-                <Link href="https://medium.com/@marioalvesneto" target="_blank">
-                  <Button className="inline-flex justify-center whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 items-center gap-1 rounded-full p-5 text-base hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out">
-                    Read my blog <NotebookText size={18} />
-                  </Button>
-                </Link>
-              </div>
-            </div>
+      <div className="mt-2 mb-6 mx-auto max-w-sm px-6 flex flex-col gap-8 items-center justify-center">
+        <div className="w-full flex items-center justify-between rounded-lg">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent-foreground transition duration-300 ease-in">
+            <span>Porto Alegre, RS</span>
+          </div>
+          <div className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 w-9 opacity-50 hover:opacity-100 transition-opacity">
+            <ThemeToggler />
           </div>
         </div>
-      </section>
-
-      <div className="mt-10 flex flex-col gap-5 p-1">
-        <div>
-          <span className="font-bold uppercase">Últimas publicações</span>
-        </div>
-        <div className="p-10 md:p-2">
-          <Carousel
-            opts={{
-              align: "start",
-            }}
-            className="relative w-full"
-            orientation="horizontal"
-          >
-            <CarouselContent>
-              {Array.isArray(publications) &&
-                publications.map((publication, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="min-w-0 shrink-0 grow-0 md:basis-1/2 lg:basis-1/3 pl-4"
-                  >
-                    <div className="p-1">
-                      <Card className="h-64">
-                        <CardContent className="flex aspect-square items-center justify-center p-0">
-                          <div className="group relative w-full h-full">
-                            <a href={publication.link} target="_blank">
-                              <Image
-                                src={publication.image}
-                                alt=""
-                                quality={100}
-                                className="rounded-md object-cover w-full h-64 shadow-md transition duration-300 ease-in-out group-hover:shadow-none group-hover:brightness-100 brightness-75"
-                              />
-                            </a>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+        <header className="flex flex-col gap-2">
+          <h1 className="text-2xl font-bold">marioalvesneto.dev</h1>
+          <p className="text-md text-muted-foreground">
+            Full-stack developer / Entrepreneur
+          </p>
+        </header>
+        <section className="w-[100%] flex flex-col justify-start items-start">
+          <h3 className="mb-6 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            MENU
+          </h3>
+          <div className="w-[100%]">
+            <a
+              href="/about"
+              className="justify-between group flex items-center rounded-lg px-4 py-2 transition-colors hover:bg-muted"
+            >
+              <span className="font-medium text-muted-foreground">About</span>
+              <ChevronRight className="text-muted-foreground" />
+            </a>
+            <a
+              href="/projects"
+              className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
+            >
+              <span className="font-medium text-muted-foreground">
+                Projects
+              </span>
+              <ChevronRight className="text-muted-foreground" />
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1aJmyzgds7QExx1D5zM6EunGYTMbw-wHG/view?usp=sharing"
+              target="_blank"
+              className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
+            >
+              <span className="font-medium text-muted-foreground">
+                Resume - PtBr
+              </span>
+              <ChevronRight className="text-muted-foreground" />
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1OyrZzybCqIYsJn-6zGuESfIblwy2jWeq/view?usp=sharing"
+              target="_blank"
+              className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
+            >
+              <span className="font-medium text-muted-foreground">
+                Resume - EnUS
+              </span>
+              <ChevronRight className="text-muted-foreground" />
+            </a>
+            <a
+              href="https://tally.so/r/mOLbDg"
+              target="_blank"
+              className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
+            >
+              <span className="font-medium text-muted-foreground">Contact</span>
+              <ChevronRight className="text-muted-foreground" />
+            </a>
+          </div>
+        </section>
       </div>
     </>
   );
