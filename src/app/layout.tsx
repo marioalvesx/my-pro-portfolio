@@ -1,5 +1,4 @@
 import "./globals.css";
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GeistMono } from "geist/font/mono";
@@ -7,6 +6,7 @@ import { GeistMono } from "geist/font/mono";
 // ThemeProvider
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Metadata } from "next";
 
 const font = GeistMono;
 font.style.fontWeight = 600;
