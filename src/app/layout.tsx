@@ -10,6 +10,11 @@ import { LanguageProvider } from "@/context/LanguageContext";
 const font = GeistMono;
 font.style.fontWeight = 600;
 
+export const metadata = {
+  title: "Mario Alves",
+  description: "Mario Alves portfolio",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
