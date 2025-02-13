@@ -6,7 +6,6 @@ import { GeistMono } from "geist/font/mono";
 // ThemeProvider
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { Metadata } from "next";
 
 const font = GeistMono;
 font.style.fontWeight = 600;
