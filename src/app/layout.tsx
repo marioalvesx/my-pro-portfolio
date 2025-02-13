@@ -11,10 +11,10 @@ import { Metadata } from "next";
 const font = GeistMono;
 font.style.fontWeight = 600;
 
-export const meta: Metadata = {
-  title: "Mario Alves",
-  description: "Mario Alves portfolio",
-};
+// export const meta: Metadata = {
+//   title: "Mario Alves",
+//   description: "Mario Alves portfolio",
+// };
 
 export default function RootLayout({
   children,
