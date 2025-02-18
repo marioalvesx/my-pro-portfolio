@@ -43,12 +43,12 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
   const resumes: { title: string; href: string; description: string }[] = [
     {
       title: "English resume",
-      href: "https://drive.google.com/file/d/1OyrZzybCqIYsJn-6zGuESfIblwy2jWeq/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1fzgt3aZifpmzbxWT8u-ueYg813Mr0-ar/view?usp=sharing",
       description: "My professional resume in english.",
     },
     {
       title: "Portuguese resume",
-      href: "https://drive.google.com/file/d/1aJmyzgds7QExx1D5zM6EunGYTMbw-wHG/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=sharing",
       description: "My professional resume in portuguese.",
     },
   ];

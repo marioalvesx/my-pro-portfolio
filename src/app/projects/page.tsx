@@ -149,9 +149,6 @@ const Projects = () => {
                   <span className="w-full font-semibold tracking-tight text-xl mb-2 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </span>
-                  <span className="text-muted-foreground">
-                    {project.description}
-                  </span>
                 </div>
               </div>
             ))
