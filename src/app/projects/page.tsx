@@ -130,7 +130,7 @@ const Projects = () => {
               <div
                 key={index}
                 className="rounded-xl border bg-card text-card-foreground shadow h-full flex flex-col overflow-hidden group hover:shadow-lg hover:cursor-pointer transition-shadow duration-300 relative"
-                onClick={() => window.open(project?.imageUrl, "_blank")}
+                onClick={() => window.open(project?.url, "_blank")}
               >
                 <div className="flex flex-col space-y-1.0 p-0">
                   <img
