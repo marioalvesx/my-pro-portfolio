@@ -43,7 +43,7 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
   const resumes: { title: string; href: string; description: string }[] = [
     {
       title: "English resume",
-      href: "https://drive.google.com/file/d/1fzgt3aZifpmzbxWT8u-ueYg813Mr0-ar/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1VsEKWrObaE9uP8Um-4z0lsmEv9iUFuCP/view?usp=sharing",
       description: "My professional resume in english.",
     },
     {

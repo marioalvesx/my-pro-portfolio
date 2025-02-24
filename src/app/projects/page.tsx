@@ -94,7 +94,15 @@ const Projects = () => {
             <span className="text-primary">{projects.length}</span> principais
             projetos que venho desenvolvendo durante minha jornada como
             programador.{" "}
-            <span className="text-primary underline">
+            <span
+              className="text-primary underline"
+              onClick={() =>
+                window.open(
+                  "https://github.com/marioalvesx?tab=repositories",
+                  "_blank"
+                )
+              }
+            >
               Confira outros projetos em meu Github
             </span>
             .
@@ -104,7 +112,6 @@ const Projects = () => {
               name="search"
               className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors transition-border duration-200 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="Procure pelo projeto desejado"
-              // onChange={() => {}
             />
             <span className="absolute inset-y-0 right-0 flex items-center pr-3">
               <svg
@@ -137,11 +144,15 @@ const Projects = () => {
                     src={project?.imageUrl}
                     alt={project?.title}
                     loading="lazy"
-                    width="500"
-                    height="300"
                     decoding="async"
                     className="rounded-md"
-                    style={{ color: "transparent" }}
+                    style={{
+                      color: "transparent",
+                      maxWidth: "500px",
+                      maxHeight: "300px",
+                      minWidth: "300px",
+                      minHeight: "200px",
+                    }}
                   />
                   <div className="absolute h-[600px] inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"></div>
                 </div>
