@@ -140,20 +140,22 @@ const Projects = () => {
                 onClick={() => window.open(project?.url, "_blank")}
               >
                 <div className="flex flex-col space-y-1.0 p-0">
-                  <img
-                    src={project?.imageUrl}
-                    alt={project?.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="rounded-md"
-                    style={{
-                      color: "transparent",
-                      maxWidth: "500px",
-                      maxHeight: "300px",
-                      minWidth: "300px",
-                      minHeight: "200px",
-                    }}
-                  />
+                  {project?.imageUrl ? (
+                    <img
+                      src={project.imageUrl}
+                      alt={project?.title}
+                      loading="lazy"
+                      width="500"
+                      height="300"
+                      decoding="async"
+                      className="rounded-md"
+                      style={{ color: "transparent" }}
+                    />
+                  ) : (
+                    <div className="w-full h-[300px] bg-black rounded-md flex items-center justify-center">
+                      <span className="text-white">In construction...</span>
+                    </div>
+                  )}
                   <div className="absolute h-[600px] inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"></div>
                 </div>
                 <div className="flex flex-col flex-grow p-4">
@@ -164,7 +166,21 @@ const Projects = () => {
               </div>
             ))
           ) : (
-            <h3>Carregando...</h3>
+            <>
+              {[...Array(4)].map((_, index) => (
+                <div
+                  key={index}
+                  className="rounded-xl border bg-card text-card-foreground shadow h-full flex flex-col overflow-hidden group transition-shadow duration-300 relative"
+                >
+                  <div className="flex flex-col space-y-1.0 p-0">
+                    <div className="w-full h-[300px] bg-gray-700 animate-pulse rounded-md"></div>
+                  </div>
+                  <div className="flex flex-col flex-grow p-4">
+                    <div className="w-full h-6 bg-gray-800 animate-pulse rounded-md mb-2"></div>
+                  </div>
+                </div>
+              ))}
+            </>
           )}
         </div>
       </div>
