@@ -1,30 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import Logo from "./theme/media/Logo";
 import ThemeToggler from "./ThemeToggler";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import LanguageToggle from "./LanguageToggle";
 
 const Header = () => {
-  const [header, setHeader] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      window.scrollY > 50 ? setHeader(true) : setHeader(false);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
-
   return (
     <>
       <header className="mx-auto items-center justify-between gap-20 px-4 py-8 xl:px-0 flex-row-reverse lg:flex-row py-4 dark:bg-transparent">
@@ -46,11 +28,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {/* <div
-        data-orientation="horizontal"
-        role="none"
-        className="shrink-0 bg-border h-[1px] w-full"
-      ></div> */}
     </>
   );
 };

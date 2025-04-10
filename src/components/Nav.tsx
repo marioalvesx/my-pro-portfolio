@@ -12,13 +12,7 @@ import {
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
-
-const links = [
-  { path: "/", label: "Home" },
-  { path: "/about", label: "About" },
-  { path: "/projects", label: "Projects" },
-  { path: "/contact", label: "Contact" },
-];
+import LanguageTranslation from "@/shared/language-provider/LanguageProvider";
 
 type navProps = {
   containerStyles: string;
@@ -31,12 +25,12 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
     {
       title: "About me",
       href: "/about",
-      description: "Learn more about me and what I do.",
+      description: <LanguageTranslation id={"about.me.one"} />,
     },
     {
       title: "Projects",
       href: "/projects",
-      description: "All projects i have been developing during my career.",
+      description: <LanguageTranslation id={"projects.me"} />,
     },
   ];
 
@@ -44,12 +38,12 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
     {
       title: "English resume",
       href: "https://drive.google.com/file/d/1VsEKWrObaE9uP8Um-4z0lsmEv9iUFuCP/view?usp=sharing",
-      description: "My professional resume in english.",
+      description: <LanguageTranslation id={"resume.english.description"} />,
     },
     {
       title: "Portuguese resume",
       href: "https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=sharing",
-      description: "My professional resume in portuguese.",
+      description: <LanguageTranslation id={"resume.portuguese.description"} />,
     },
   ];
 
@@ -59,7 +53,9 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>About</NavigationMenuTrigger>
+              <NavigationMenuTrigger>
+                <LanguageTranslation id={"about.me"} />
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="flex flex-col w-[320px] gap-3 p-4">
                   {about.map((about) => (
@@ -75,7 +71,9 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Resumes</NavigationMenuTrigger>
+              <NavigationMenuTrigger>
+                <LanguageTranslation id={"Resumes"} />
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="flex flex-col w-[300px] gap-3 p-4">
                   {resumes.map((resumes) => (
@@ -110,7 +108,7 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
                   target="_blank"
                   className={navigationMenuTriggerStyle()}
                 >
-                  Contact
+                  <LanguageTranslation id={"contact.me"} />
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

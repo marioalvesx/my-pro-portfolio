@@ -1,8 +1,15 @@
 "use client";
 
-import React, { createContext, useState, useContext, ReactNode } from "react";
+import React, {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useEffect,
+} from "react";
 import enTranslations from "../languages/en-us.json";
 import ptTranslations from "../languages/pt-br.json";
+import { getLocalStorageItem } from "@/shared/local-storage";
 
 type LanguageContextType = {
   language: string;
@@ -13,13 +20,21 @@ type LanguageContextType = {
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState("en-us");
   const [translations, setTranslations] = useState(enTranslations);
 
   const toggleLanguage = (lang: string) => {
     setLanguage(lang);
-    setTranslations(lang === "en" ? enTranslations : ptTranslations);
+    setTranslations(lang === "en-us" ? enTranslations : ptTranslations);
   };
+
+  useEffect(() => {
+    const lang = getLocalStorageItem("language");
+
+    if (lang) {
+      setLanguage(lang);
+    }
+  }, []);
 
   return (
     <LanguageContext.Provider

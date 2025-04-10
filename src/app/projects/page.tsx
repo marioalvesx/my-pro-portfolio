@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import React, { useEffect, useState } from "react";
+import LanguageTranslation from "@/shared/language-provider/LanguageProvider";
 
 // Files
 import githubExplorer from "./assets/images/githubExplorer.svg";
@@ -9,6 +9,8 @@ import hypedSneakers from "./assets/images/hypedsneakers.svg";
 import loginPage from "./assets/images/animatedLoginPage.svg";
 import { useProjects } from "@/services/firebase/useProjects";
 import Header from "@/components/Header";
+import { useEffect, useState } from "react";
+import { ArrowBigRight, ArrowRight, ExternalLink, Link } from "lucide-react";
 
 interface Project {
   id: number;
@@ -18,67 +20,17 @@ interface Project {
   link: string;
 }
 
-const fetchProjects: Project[] = [
-  {
-    id: 1,
-    title: "Smart Finance",
-    description: "Controle suas finanças de forma simples e intuitiva.",
-    image: "",
-    link: "https://github.com/marioalvesx/SmartFinance",
-  },
-  {
-    id: 2,
-    title: "Github Explorer",
-    description:
-      "Busque pelo nome de qualquer usuário do Github e explore seus projetos.",
-    image: githubExplorer,
-    link: "https://githubxplorer.netlify.app/",
-  },
-  {
-    id: 3,
-    title: "Hyped Sneakers",
-    description:
-      "E-commerce minimalista e experimental dos sneakers mais famosos e bem conceituados do mercado.",
-    image: hypedSneakers,
-    link: "https://hypedsneakersbr.netlify.app/",
-  },
-  {
-    id: 4,
-    title: "Login animado",
-    description: "Página de login animada.",
-    image: loginPage,
-    link: "https://github.com/marioalvesx/login-page",
-  },
-  {
-    id: 5,
-    title: "DevUrlShortener",
-    description: "Serviço para encurtar URLs.",
-    image: "",
-    link: "https://github.com/marioalvesx/DevUrlShortener",
-  },
-  {
-    id: 6,
-    title: "Nps Survey API",
-    description:
-      "API que envia pesquisas por e-mail para buscar o NPS de uma empresa.",
-    image: "",
-    link: "https://github.com/marioalvesx/NpsSurveyAPI",
-  },
-  {
-    id: 7,
-    title: "Vidly",
-    description: "Aplicação que gerencia filmes de uma locadora.",
-    image: "",
-    link: "https://github.com/marioalvesx/Vidly",
-  },
-];
-
 const Projects = () => {
   const { projects } = useProjects();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    projects?.length > 0 ? setLoading(true) : setLoading(false);
+    if (projects?.length > 0) {
+      setLoading(true);
+      projects.sort((a, b) => a.id - b.id);
+    } else {
+      setLoading(false);
+    }
   }, [projects]);
 
   return (
@@ -87,13 +39,12 @@ const Projects = () => {
       <div className="mx-auto flex flex-col max-w-5xl justify-between gap-10 overflow-hidden px-5 py-8 xl:px-0">
         <div className="flex flex-col gap-5 w-full px-1">
           <h1 className="flex font-bold items-start text-4xl text-[--primary]">
-            Projects
+            <LanguageTranslation id={"projects.title"} />
           </h1>
           <p className="text-base text-muted-foreground">
-            Aqui você vai conferir os{" "}
-            <span className="text-primary">{projects.length}</span> principais
-            projetos que venho desenvolvendo durante minha jornada como
-            programador.{" "}
+            <LanguageTranslation id={"projects.description.one"} />{" "}
+            <span className="text-primary">{projects.length}</span>{" "}
+            <LanguageTranslation id={"projects.description.two"} />.{" "}
             <span
               className="text-primary underline"
               onClick={() =>
@@ -103,7 +54,7 @@ const Projects = () => {
                 )
               }
             >
-              Confira outros projetos em meu Github
+              <LanguageTranslation id={"projects.description.three"} />
             </span>
             .
           </p>
@@ -111,7 +62,7 @@ const Projects = () => {
             <Input
               name="search"
               className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors transition-border duration-200 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-              placeholder="Procure pelo projeto desejado"
+              // placeholder={placeholderText}
             />
             <span className="absolute inset-y-0 right-0 flex items-center pr-3">
               <svg
@@ -141,27 +92,45 @@ const Projects = () => {
               >
                 <div className="flex flex-col space-y-1.0 p-0">
                   {project?.imageUrl ? (
-                    <img
-                      src={project.imageUrl}
-                      alt={project?.title}
-                      loading="lazy"
-                      width="500"
-                      height="300"
-                      decoding="async"
-                      className="rounded-md"
-                      style={{ color: "transparent" }}
-                    />
+                    <>
+                      <img
+                        src={project.imageUrl}
+                        alt={project?.title}
+                        loading="lazy"
+                        width="500"
+                        height="400"
+                        decoding="async"
+                        className="rounded-md object-cover w-full h-[300px] transition-transform duration-300 group-hover:scale-105"
+                        style={{ color: "transparent" }}
+                      />
+                      <div className="absolute h-[310px] inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <ExternalLink
+                          size="34"
+                          color="white"
+                          className="group-hover:text-primary transition-colors duration-300"
+                        />
+                      </div>
+                    </>
                   ) : (
                     <div className="w-full h-[300px] bg-black rounded-md flex items-center justify-center">
-                      <span className="text-white">In construction...</span>
+                      <span className="text-white">
+                        <LanguageTranslation id={"gen.message.wip"} />
+                      </span>
                     </div>
                   )}
-                  <div className="absolute h-[600px] inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"></div>
                 </div>
-                <div className="flex flex-col flex-grow p-4">
-                  <span className="w-full font-semibold tracking-tight text-xl mb-2 group-hover:text-primary transition-colors duration-300">
+                <div className="flex flex-row flex-grow p-4">
+                  <span className="w-full font-semibold tracking-tight text-xl">
                     {project.title}
                   </span>
+                  <div className="text-background flex flex-row items-center gap-2 justify-center w-full group-hover:text-card-foreground transition-colors duration-300">
+                    <span className="w-full tracking-tight text-lg flex items-end justify-end">
+                      <LanguageTranslation id={"projects.view"} />
+                    </span>
+                    <span className="flex items-center justify-center">
+                      <ArrowRight size={20} />
+                    </span>
+                  </div>
                 </div>
               </div>
             ))

@@ -18,6 +18,7 @@ import publication2 from "../app/projects/assets/images/mainProjectsImages/tdc-e
 import publication3 from "../app/projects/assets/images/mainProjectsImages/tdc-event-3.jpg";
 import Image from "next/image";
 import ThemeToggler from "./ThemeToggler";
+import LanguageTranslation from "@/shared/language-provider/LanguageProvider";
 
 export default function Hero() {
   const { translations } = useLanguage();
@@ -53,10 +54,10 @@ export default function Hero() {
             <ThemeToggler />
           </div>
         </div>
-        <header className="flex flex-col gap-2">
+        <header className="w-full flex flex-col gap-2">
           <h1 className="text-2xl font-bold">marioalvesneto.dev</h1>
           <p className="text-md text-muted-foreground">
-            Full-stack developer / Entrepreneur
+            <LanguageTranslation id={"welcome.message.two"} />
           </p>
         </header>
         <section className="w-[100%] flex flex-col justify-start items-start">
@@ -68,7 +69,9 @@ export default function Hero() {
               href="/about"
               className="justify-between group flex items-center rounded-lg px-4 py-2 transition-colors hover:bg-muted"
             >
-              <span className="font-medium text-muted-foreground">About</span>
+              <span className="font-medium text-muted-foreground">
+                <LanguageTranslation id={"about.me"} />{" "}
+              </span>
               <ChevronRight className="text-muted-foreground" />
             </a>
             <a
@@ -76,7 +79,7 @@ export default function Hero() {
               className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
             >
               <span className="font-medium text-muted-foreground">
-                Projects
+                <LanguageTranslation id={"projects.me"} />
               </span>
               <ChevronRight className="text-muted-foreground" />
             </a>
@@ -86,7 +89,7 @@ export default function Hero() {
               className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
             >
               <span className="font-medium text-muted-foreground">
-                Resume - PtBr
+                <LanguageTranslation id={"resume.me"} /> - PtBr
               </span>
               <ChevronRight className="text-muted-foreground" />
             </a>
@@ -96,7 +99,7 @@ export default function Hero() {
               className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
             >
               <span className="font-medium text-muted-foreground">
-                Resume - EnUS
+                <LanguageTranslation id={"resume.me"} /> - EnUS
               </span>
               <ChevronRight className="text-muted-foreground" />
             </a>
@@ -105,7 +108,9 @@ export default function Hero() {
               target="_blank"
               className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
             >
-              <span className="font-medium text-muted-foreground">Contact</span>
+              <span className="font-medium text-muted-foreground">
+                <LanguageTranslation id={"contact.me"} />
+              </span>
               <ChevronRight className="text-muted-foreground" />
             </a>
           </div>
