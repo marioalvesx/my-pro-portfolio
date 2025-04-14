@@ -55,7 +55,7 @@ export default function Hero() {
           </div>
         </div>
         <header className="w-full flex flex-col gap-2">
-          <h1 className="text-2xl font-bold">marioalvesneto.dev</h1>
+          <h1 className="text-2xl font-bold">Mario Alves Neto</h1>
           <p className="text-md text-muted-foreground">
             <LanguageTranslation id={"welcome.message.two"} />
           </p>
@@ -79,7 +79,7 @@ export default function Hero() {
               className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
             >
               <span className="font-medium text-muted-foreground">
-                <LanguageTranslation id={"projects.me"} />
+                <LanguageTranslation id={"projects.title"} />
               </span>
               <ChevronRight className="text-muted-foreground" />
             </a>

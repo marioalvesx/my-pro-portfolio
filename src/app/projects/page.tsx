@@ -36,7 +36,7 @@ const Projects = () => {
   return (
     <>
       <Header />
-      <div className="mx-auto flex flex-col max-w-5xl justify-between gap-10 overflow-hidden px-5 py-8 xl:px-0">
+      <div className="mx-auto flex flex-col max-w-5xl justify-between gap-10 overflow-hidden pl-[12px] pr-[3px] px-5 py-8">
         <div className="flex flex-col gap-5 w-full px-1">
           <h1 className="flex font-bold items-start text-4xl text-[--primary]">
             <LanguageTranslation id={"projects.title"} />

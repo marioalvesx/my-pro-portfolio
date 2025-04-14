@@ -17,7 +17,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <div className="mx-auto flex flex-col max-w-5xl justify-between gap-10 overflow-hidden px-5 py-8 xl:px-0">
+      <div className="mx-auto flex flex-col max-w-5xl justify-between gap-10 overflow-hidden pl-[12px] pr-[3px] px-[2px] py-8">
         <div>
           <h1 className="flex font-bold items-start text-4xl text-[--primary] mb-4">
             <LanguageTranslation id={"about.me"} />

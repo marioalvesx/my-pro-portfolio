@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 import React from "react";
 import {
@@ -21,27 +20,27 @@ type navProps = {
 };
 
 const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
-  const about: { title: string; href: string; description: string }[] = [
+  const about: { title: any; href: string; description: any }[] = [
     {
-      title: "About me",
+      title: <LanguageTranslation id={"about.me"} />,
       href: "/about",
       description: <LanguageTranslation id={"about.me.one"} />,
     },
     {
-      title: "Projects",
+      title: <LanguageTranslation id={"projects.me"} />,
       href: "/projects",
       description: <LanguageTranslation id={"projects.me"} />,
     },
   ];
 
-  const resumes: { title: string; href: string; description: string }[] = [
+  const resumes: { title: any; href: string; description: any }[] = [
     {
-      title: "English resume",
+      title: <LanguageTranslation id={"resume.me.enus"} />,
       href: "https://drive.google.com/file/d/1VsEKWrObaE9uP8Um-4z0lsmEv9iUFuCP/view?usp=sharing",
-      description: <LanguageTranslation id={"resume.english.description"} />,
+      description: LanguageTranslation({ id: "resume.english.description" }),
     },
     {
-      title: "Portuguese resume",
+      title: <LanguageTranslation id={"resume.me.ptbr"} />,
       href: "https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=sharing",
       description: <LanguageTranslation id={"resume.portuguese.description"} />,
     },

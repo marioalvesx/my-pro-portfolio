@@ -1,18 +1,34 @@
 "use client";
 
-import Logo from "./theme/media/Logo";
+import LogoWhite from "../app/projects/assets/logo/Portfolio-logo-white.png";
+import LogoDark from "../app/projects/assets/logo/Portfolio-logo-dark.png";
 import ThemeToggler from "./ThemeToggler";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import LanguageToggle from "./LanguageToggle";
+import { useContext } from "react";
+import { useTheme } from "next-themes";
 
 const Header = () => {
+  const { theme } = useTheme();
+  const currentLogo = theme === "dark" ? LogoWhite.src : LogoDark.src;
+
   return (
     <>
       <header className="mx-auto items-center justify-between gap-20 px-4 py-8 xl:px-0 flex-row-reverse lg:flex-row py-4 dark:bg-transparent">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
-            <Logo />
+            <a href="/">
+              <img
+                src={currentLogo}
+                width={60}
+                height={60}
+                alt=""
+                style={{ opacity: 0.5, transition: "opacity 0.3s" }}
+                onMouseOver={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseOut={(e) => (e.currentTarget.style.opacity = "0.5")}
+              />
+            </a>
             <div className="flex items-center gap-x-8">
               <Nav
                 containerStyles="hidden xl:flex gap-x-8 items-center"
