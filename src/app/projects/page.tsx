@@ -4,13 +4,11 @@ import { Input } from "@/components/ui/input";
 import LanguageTranslation from "@/shared/language-provider/LanguageProvider";
 
 // Files
-import githubExplorer from "./assets/images/githubExplorer.svg";
-import hypedSneakers from "./assets/images/hypedsneakers.svg";
-import loginPage from "./assets/images/animatedLoginPage.svg";
 import { useProjects } from "@/services/firebase/useProjects";
 import Header from "@/components/Header";
 import { useEffect, useState } from "react";
-import { ArrowBigRight, ArrowRight, ExternalLink, Link } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import Footer from "@/components/Footer";
 
 interface Project {
   id: number;
@@ -46,7 +44,7 @@ const Projects = () => {
             <span className="text-primary">{projects.length}</span>{" "}
             <LanguageTranslation id={"projects.description.two"} />.{" "}
             <span
-              className="text-primary underline"
+              className="text-primary underline hover:cursor-pointer"
               onClick={() =>
                 window.open(
                   "https://github.com/marioalvesx?tab=repositories",
@@ -62,7 +60,6 @@ const Projects = () => {
             <Input
               name="search"
               className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors transition-border duration-200 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-              // placeholder={placeholderText}
             />
             <span className="absolute inset-y-0 right-0 flex items-center pr-3">
               <svg
@@ -153,6 +150,7 @@ const Projects = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

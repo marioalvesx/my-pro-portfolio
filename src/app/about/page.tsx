@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import Header from "@/components/Header";
 import LanguageTranslation from "@/shared/language-provider/LanguageProvider";
+import Footer from "@/components/Footer";
 
 export default function About() {
   const [isOpen, setIsOpen] = useState(false);
@@ -129,14 +130,17 @@ export default function About() {
                     <LanguageTranslation id={"about.me.customer.success"} />
                   </h3>
                   <p className="m-0">
-                    <a className="text-[--secondary]">Umbler</a>
-                    <span>
+                    <a className="text-muted-foreground font-semibold">
+                      {" "}
+                      Umbler
+                    </a>
+                    <span className="text-lg text-muted-foreground font-semibold">
                       {" • "}
                       <LanguageTranslation id={"about.me.remote"} />
                     </span>
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    <LanguageTranslation id={"about.me.remote"} /> 2017 -{" "}
+                    <LanguageTranslation id={"gen.march"} /> 2017 -{" "}
                     <LanguageTranslation id={"gen.june"} />
                     2022
                   </p>
@@ -146,6 +150,7 @@ export default function About() {
           </Accordion>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

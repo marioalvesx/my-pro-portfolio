@@ -15,11 +15,10 @@ import LanguageTranslation from "@/shared/language-provider/LanguageProvider";
 
 type navProps = {
   containerStyles: string;
-  linkStyles: string;
-  underlineStyles: string;
+  isMobile?: boolean;
 };
 
-const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
+const Nav = ({ containerStyles, isMobile = false }: navProps) => {
   const about: { title: any; href: string; description: any }[] = [
     {
       title: <LanguageTranslation id={"about.me"} />,
@@ -27,7 +26,7 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
       description: <LanguageTranslation id={"about.me.one"} />,
     },
     {
-      title: <LanguageTranslation id={"projects.me"} />,
+      title: <LanguageTranslation id={"projects.title"} />,
       href: "/projects",
       description: <LanguageTranslation id={"projects.me"} />,
     },
@@ -46,75 +45,137 @@ const Nav = ({ containerStyles, underlineStyles, linkStyles }: navProps) => {
     },
   ];
 
-  return (
-    <>
+  if (isMobile) {
+    return (
       <div className={`${containerStyles}`}>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>
-                <LanguageTranslation id={"about.me"} />
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="flex flex-col w-[320px] gap-3 p-4">
-                  {about.map((about) => (
-                    <ListItem
-                      key={about.title}
-                      title={about.title}
-                      href={about.href}
-                    >
-                      {about.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>
-                <LanguageTranslation id={"Resumes"} />
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="flex flex-col w-[300px] gap-3 p-4">
-                  {resumes.map((resumes) => (
-                    <ListItem
-                      key={resumes.title}
-                      title={resumes.title}
-                      href={resumes.href}
-                    >
-                      {resumes.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
+        <div className="flex flex-col w-full gap-y-6">
+          <div className="flex flex-col gap-y-3">
+            <div className="text-lg font-semibold">
+              <LanguageTranslation id={"about.me"} />
+            </div>
+            {about.map((item, index) => (
               <Link
-                href="https://medium.com/@marioalvesneto"
-                legacyBehavior
-                passHref
+                key={index}
+                href={item.href}
+                className="pl-4 py-2 hover:bg-accent rounded-md transition-colors"
               >
-                <NavigationMenuLink
-                  target="_blank"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  Blog
-                </NavigationMenuLink>
+                <div className="font-medium">{item.title}</div>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
               </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="https://tally.so/r/mOLbDg" legacyBehavior passHref>
-                <NavigationMenuLink
-                  target="_blank"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <LanguageTranslation id={"contact.me"} />
-                </NavigationMenuLink>
+            ))}
+          </div>
+
+          {/* Resumes Section */}
+          <div className="flex flex-col gap-y-3">
+            <div className="text-lg font-semibold">
+              <LanguageTranslation id={"resumes"} />
+            </div>
+            {resumes.map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                target="_blank"
+                className="pl-4 py-2 hover:bg-accent rounded-md transition-colors"
+              >
+                <div className="font-medium">{item.title}</div>
+                <p className="text-sm text-muted-foreground">
+                  {item.description}
+                </p>
               </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+            ))}
+          </div>
+
+          {/* Blog Link */}
+          <Link
+            href="https://medium.com/@marioalvesneto"
+            target="_blank"
+            className="pl-4 py-2 hover:bg-accent rounded-md transition-colors text-lg"
+          >
+            Blog
+          </Link>
+
+          {/* Contact Link */}
+          <Link
+            href="https://tally.so/r/mOLbDg"
+            target="_blank"
+            className="pl-4 py-2 hover:bg-accent rounded-md transition-colors text-lg"
+          >
+            <LanguageTranslation id={"contact.me"} />
+          </Link>
+        </div>
       </div>
-    </>
+    );
+  }
+
+  return (
+    <div className={`${containerStyles}`}>
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>
+              <LanguageTranslation id={"about.me"} />
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="z-[999]">
+              <ul className="flex flex-col w-[320px] gap-3 p-4 z-[999]">
+                {about.map((about) => (
+                  <ListItem
+                    key={about.title}
+                    title={about.title}
+                    href={about.href}
+                  >
+                    {about.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>
+              <LanguageTranslation id={"resumes"} />
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="flex flex-col w-[300px] gap-3 p-4">
+                {resumes.map((resumes) => (
+                  <ListItem
+                    key={resumes.title}
+                    title={resumes.title}
+                    href={resumes.href}
+                  >
+                    {resumes.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link
+              href="https://medium.com/@marioalvesneto"
+              legacyBehavior
+              passHref
+            >
+              <NavigationMenuLink
+                target="_blank"
+                className={navigationMenuTriggerStyle()}
+              >
+                Blog
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="https://tally.so/r/mOLbDg" legacyBehavior passHref>
+              <NavigationMenuLink
+                target="_blank"
+                className={navigationMenuTriggerStyle()}
+              >
+                <LanguageTranslation id={"contact.me"} />
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
   );
 };
 

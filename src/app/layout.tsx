@@ -1,5 +1,4 @@
 import "./globals.css";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GeistMono } from "geist/font/mono";
 
@@ -26,12 +25,9 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href={FavIcon.src} />
       </head>
-      <body className={font.className}>
+      <body className={`${font.className} min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <LanguageProvider>
-            {children}
-            <Footer />
-          </LanguageProvider>
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
