@@ -14,22 +14,37 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  imageUrl: string;
+  url: string;
   link: string;
 }
 
 const Projects = () => {
   const { projects } = useProjects();
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     if (projects?.length > 0) {
       setLoading(true);
       projects.sort((a, b) => a.id - b.id);
+      setFilteredProjects(projects);
     } else {
       setLoading(false);
     }
   }, [projects]);
+
+  useEffect(() => {
+    if (searchTerm) {
+      const filtered = projects.filter((project) =>
+        project.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredProjects(filtered);
+    } else {
+      setFilteredProjects(projects);
+    }
+  }, [searchTerm, projects]);
 
   return (
     <>
@@ -59,6 +74,9 @@ const Projects = () => {
           <div className="relative w-full">
             <Input
               name="search"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors transition-border duration-200 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
             />
             <span className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -81,7 +99,7 @@ const Projects = () => {
         </div>
         <div className="grid grid-cols-2 gap-10 items-center px-1">
           {loading ? (
-            projects.map((project, index) => (
+            filteredProjects.map((project, index) => (
               <div
                 key={index}
                 className="rounded-xl border bg-card text-card-foreground shadow h-full flex flex-col overflow-hidden group hover:shadow-lg hover:cursor-pointer transition-shadow duration-300 relative"
