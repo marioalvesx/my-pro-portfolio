@@ -35,12 +35,12 @@ const Nav = ({ containerStyles, isMobile = false }: navProps) => {
   const resumes: { title: any; href: string; description: any }[] = [
     {
       title: <LanguageTranslation id={"resume.me.enus"} />,
-      href: "https://drive.google.com/file/d/1VsEKWrObaE9uP8Um-4z0lsmEv9iUFuCP/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1VsEKWrObaE9uP8Um-4z0lsmEv9iUFuCP/view?usp=drive_link",
       description: LanguageTranslation({ id: "resume.english.description" }),
     },
     {
       title: <LanguageTranslation id={"resume.me.ptbr"} />,
-      href: "https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=drive_link",
       description: <LanguageTranslation id={"resume.portuguese.description"} />,
     },
   ];
