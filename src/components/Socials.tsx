@@ -3,10 +3,8 @@ import React from "react";
 import {
   RiGithubFill,
   RiLinkedinFill,
-  RiInstagramFill,
   RiTwitterXFill,
   RiDiscordFill,
-  RiSteamFill,
 } from "react-icons/ri";
 
 import Link from "next/link";
@@ -14,8 +12,8 @@ import Link from "next/link";
 const icons = [
   {
     path: "/",
-    name: <RiInstagramFill />,
-    title: "Instagram",
+    name: <RiLinkedinFill />,
+    title: "LinkedIn",
   },
   {
     path: "/",
@@ -29,18 +27,8 @@ const icons = [
   },
   {
     path: "/",
-    name: <RiLinkedinFill />,
-    title: "LinkedIn",
-  },
-  {
-    path: "/",
     name: <RiDiscordFill />,
     title: "Discord",
-  },
-  {
-    path: "/",
-    name: <RiSteamFill />,
-    title: "Steam",
   },
 ];
 

@@ -48,7 +48,7 @@ export default function Hero() {
             <ChevronRight className="text-muted-foreground" />
           </a>
           <a
-            href="https://drive.google.com/file/d/1aJmyzgds7QExx1D5zM6EunGYTMbw-wHG/view?usp=sharing"
+            href="https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=sharing"
             target="_blank"
             className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
           >
@@ -58,7 +58,7 @@ export default function Hero() {
             <ChevronRight className="text-muted-foreground" />
           </a>
           <a
-            href="https://drive.google.com/file/d/1OyrZzybCqIYsJn-6zGuESfIblwy2jWeq/view?usp=sharing"
+            href="https://drive.google.com/file/d/1VsEKWrObaE9uP8Um-4z0lsmEv9iUFuCP/view?usp=drive_link"
             target="_blank"
             className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
           >
