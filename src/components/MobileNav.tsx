@@ -36,7 +36,7 @@ function MobileNav() {
             isMobile={true}
           />
         </div>
-        <div className="flex flex-col items-center mb-8">
+        <div className="flex flex-col items-center">
           <Socials containerStyles="flex gap-x-4" iconsStyles="text-2xl" />
         </div>
       </SheetContent>

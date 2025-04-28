@@ -11,8 +11,6 @@ const translations = {
 const LanguageTranslation = ({ id }) => {
   const { language } = useLanguage();
   let currentLanguage = language || "en-us";
-  console.log(currentLanguage);
-
   const translation = translations[currentLanguage][id];
 
   return <>{translation || id}</>;

@@ -8,20 +8,10 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { useLanguage } from "@/context/LanguageContext";
-import { useEffect } from "react";
 import { writeOnLocalStorage } from "@/shared/local-storage";
 
 const LanguageToggle: React.FC = () => {
   const { language, toggleLanguage } = useLanguage();
-
-  // useEffect(() => {
-  //   const lang = localStorage.getItem("language");
-  //   console.log(lang);
-
-  //   if (lang) {
-  //     toggleLanguage(lang);
-  //   }
-  // }, []);
 
   return (
     <DropdownMenu>

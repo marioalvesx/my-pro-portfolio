@@ -11,12 +11,12 @@ import Link from "next/link";
 
 const icons = [
   {
-    path: "/",
+    path: "https://www.linkedin.com/in/marioalvesneto/",
     name: <RiLinkedinFill />,
     title: "LinkedIn",
   },
   {
-    path: "/",
+    path: "https://github.com/marioalvesx",
     name: <RiGithubFill />,
     title: "Github",
   },
@@ -26,7 +26,7 @@ const icons = [
     title: "X",
   },
   {
-    path: "/",
+    path: "_marioalves",
     name: <RiDiscordFill />,
     title: "Discord",
   },
