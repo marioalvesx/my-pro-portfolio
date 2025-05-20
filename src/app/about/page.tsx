@@ -64,7 +64,7 @@ export default function About() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col px-6 py-6 rounded-xl border align-center justify-center">
+        <div className="flex flex-col px-6 py-6 rounded-xl border align-center text-justify justify-center">
           <h2 className="flex font-bold items-start text-2xl text-[--primary]">
             <LanguageTranslation id={"about.me.career"} />
           </h2>

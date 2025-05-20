@@ -17,27 +17,29 @@ function MobileNav() {
         <AlignJustify className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent>
-        <div className="flex flex-col items-center h-[90%] py-8 gap-y-10">
-          <div className="flex flex-col w-full items-center gap-y-32">
-            <a href="/">
-              <img
-                src={currentLogo}
-                width={60}
-                height={60}
-                alt=""
-                style={{ opacity: 0.5, transition: "opacity 0.3s" }}
-                onMouseOver={(e) => (e.currentTarget.style.opacity = "1")}
-                onMouseOut={(e) => (e.currentTarget.style.opacity = "0.5")}
-              />
-            </a>
+        <div className="flex flex-col h-full w-full items-center justify-between">
+          <div className="flex flex-col items-center h-[90%] py-8 gap-y-10 max-h-[730px] overflow-y-auto">
+            <div className="flex flex-col w-full items-center gap-y-32">
+              <a href="/">
+                <img
+                  src={currentLogo}
+                  width={60}
+                  height={60}
+                  alt=""
+                  style={{ opacity: 0.5, transition: "opacity 0.3s" }}
+                  onMouseOver={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseOut={(e) => (e.currentTarget.style.opacity = "0.5")}
+                />
+              </a>
+            </div>
+            <Nav
+              containerStyles="flex flex-col w-full items-start"
+              isMobile={true}
+            />
           </div>
-          <Nav
-            containerStyles="flex flex-col w-full items-start"
-            isMobile={true}
-          />
-        </div>
-        <div className="flex flex-col items-center">
-          <Socials containerStyles="flex gap-x-4" iconsStyles="text-2xl" />
+          <div className="flex flex-col items-center">
+            <Socials containerStyles="flex gap-x-4" iconsStyles="text-2xl" />
+          </div>
         </div>
       </SheetContent>
     </Sheet>
