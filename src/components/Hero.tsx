@@ -48,7 +48,7 @@ export default function Hero() {
             <ChevronRight className="text-muted-foreground" />
           </a>
           <a
-            href="https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=sharing"
+            href="https://drive.google.com/file/d/1UEYEmUZy2WnBCkC-MxKW0mPBqfSgP5nj/view?usp=drive_link"
             target="_blank"
             className="group flex items-center justify-between rounded-lg px-4 py-2 transition-colors hover:bg-muted"
           >
