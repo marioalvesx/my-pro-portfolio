@@ -61,7 +61,7 @@ function NavItem({
 export default function Hero() {
   return (
     <motion.div
-      className="mx-auto w-4/12 flex flex-col gap-16"
+      className="mx-auto w-1/4 flex flex-col gap-16"
       variants={container}
       initial="hidden"
       animate="show"

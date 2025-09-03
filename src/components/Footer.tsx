@@ -3,7 +3,7 @@ import Socials from "./Socials";
 
 const Footer = () => {
   return (
-    <footer className="mx-auto flex w-1/3 flex-col justify-center gap-4 overflow-hidden pt-2 pb-0 px-5 lg:px-0">
+    <footer className="mx-auto flex w-1/4 flex-col justify-center gap-4 overflow-hidden pt-2 pb-0 px-5 lg:px-0">
       <div className="text-card-foreground shadow bg-footer-background">
         <div className="items-center m-0 flex justify-center p-5">
           <Socials
