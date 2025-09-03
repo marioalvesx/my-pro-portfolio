@@ -16,7 +16,7 @@ const container = {
     transition: {
       duration: 0.4,
       ease: [0.16, 0.84, 0.44, 1],
-      when: "beforeChildren",
+      // when: "beforeChildren",
       delayChildren: stagger(0.1),
     },
   },
@@ -62,7 +62,7 @@ export default function Hero() {
   return (
     <motion.div
       className="mx-auto w-4/12 flex flex-col gap-16"
-      variants={container}
+      // variants={container}
       initial="hidden"
       animate="show"
     >
