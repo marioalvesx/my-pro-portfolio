@@ -6,6 +6,7 @@ import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import FavIcon from "@/app/favicon.ico";
+import MotionProvider from "@/components/motion/MotionProvider";
 
 const font = GeistMono;
 font.style.fontWeight = 600;
@@ -27,7 +28,9 @@ export default function RootLayout({
       </head>
       <body className={`${font.className} min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <LanguageProvider>{children}</LanguageProvider>
+          <MotionProvider>
+            <LanguageProvider>{children}</LanguageProvider>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>
