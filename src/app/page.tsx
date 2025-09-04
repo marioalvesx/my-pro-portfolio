@@ -10,7 +10,6 @@ export default function Home() {
       </head>
       <div className="flex flex-col gap-8 items-center justify-center w-full h-full">
         <Hero />
-        <Footer />
       </div>
     </main>
   );

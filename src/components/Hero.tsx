@@ -7,6 +7,7 @@ import { stagger } from "motion";
 import { ChevronRight } from "lucide-react";
 import ThemeToggler from "./ThemeToggler";
 import LanguageTranslation from "@/shared/language-provider/LanguageProvider";
+import Socials from "./Socials";
 
 const container = {
   hidden: { opacity: 0, y: 8 },
@@ -61,7 +62,7 @@ function NavItem({
 export default function Hero() {
   return (
     <motion.div
-      className="mx-auto w-1/4 flex flex-col gap-16"
+      className="mx-auto max-w-2xl px-6 py-8 flex flex-col gap-8"
       variants={container}
       initial="hidden"
       animate="show"
@@ -129,6 +130,26 @@ export default function Hero() {
           </NavItem>
         </div>
       </motion.section>
+      <footer className="mx-auto max-w-2xl px-6 py-8 flex flex-col gap-8">
+        <div className="text-card-foreground shadow bg-footer-background">
+          <div className="items-center m-0 flex justify-center p-5">
+            <Socials
+              containerStyles="grid grid-cols-5 items-center gap-8 md:flex md:gap-4"
+              iconsStyles="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 w-9 text-primary dark:text-white/70 text-[21px] hover:text-white dark:hover:text-primary transition-all"
+            />
+          </div>
+          <div
+            data-orientation="horizontal"
+            role="none"
+            className="w-full flex items-center justify-center shrink-0 bg-border h-[1px]"
+          ></div>
+          <div className="items-center m-0 flex justify-center p-5">
+            <span className="text-sm text-muted-foreground">
+              ©2025 - Mario Alves
+            </span>
+          </div>
+        </div>
+      </footer>
     </motion.div>
   );
 }
