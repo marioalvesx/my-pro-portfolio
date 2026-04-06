@@ -40,5 +40,19 @@
   "about.me.remote": "Remoto",
   "about.me.current": "atual",
   "about.me.hide.roles": "Esconder Cargos Anteriores",
-  "about.me.show.roles": "Mostrar Cargos Anteriores"
+  "about.me.show.roles": "Mostrar Cargos Anteriores",
+  "hero.availability": "DISPONÍVEL PARA NOVOS PROJETOS",
+  "hero.title": "Engenheiro Full Stack construindo experiências web modernas",
+  "hero.description": "Sou um desenvolvedor criativo que busca fornecer soluções digitais inovadoras para suas necessidades.",
+  "hero.email": "Entre em contato",
+  "bento.about.title": "Sobre Mim",
+  "bento.about.description": "Saiba mais sobre minha jornada.",
+  "bento.projects.title": "Projetos",
+  "bento.projects.description": "Confira meus trabalhos recentes.",
+  "bento.resume.title": "Currículo",
+  "bento.resume.description": "Baixe meu CV.",
+  "bento.contact.title": "Entre em Contato",
+  "bento.contact.description": "Tem um projeto em mente?",
+  "bento.socials.title": "Conecte-se",
+  "bento.socials.description": "Me encontre nas redes sociais."
 }

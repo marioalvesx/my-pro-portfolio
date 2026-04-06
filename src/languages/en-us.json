@@ -40,5 +40,19 @@
   "about.me.remote": "Remote",
   "about.me.current": "atual",
   "about.me.hide.roles": "Hide Previous Roles",
-  "about.me.show.roles": "Show Previous Roles"
+  "about.me.show.roles": "Show Previous Roles",
+  "hero.availability": "AVAILABLE FOR NEW PROJECTS",
+  "hero.title": "Full stack Engineer building modern web experiences",
+  "hero.description": "I'm a creative developer seeking to provide innovative digital solutions to your needs.",
+  "hero.email": "Contact me",
+  "bento.about.title": "About Me",
+  "bento.about.description": "Learn more about my journey.",
+  "bento.projects.title": "Projects",
+  "bento.projects.description": "Check out my latest work.",
+  "bento.resume.title": "Resume",
+  "bento.resume.description": "Download my CV.",
+  "bento.contact.title": "Get in Touch",
+  "bento.contact.description": "Have a project in mind?",
+  "bento.socials.title": "Connect",
+  "bento.socials.description": "Find me on social media."
 }

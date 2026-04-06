@@ -94,3 +94,48 @@
 .subtitle {
   @apply text-muted-foreground text-lg mb-8 font-light;
 }
+
+/* Bento Grid Custom Styles */
+.bento-card {
+  cursor: pointer;
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus Visible Styles for Accessibility */
+.bento-card:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Enhanced card minimum height */
+@media (min-width: 640px) {
+  .bento-card {
+    min-height: 240px;
+  }
+}
+
+/* Scroll Indicator Animation */
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
