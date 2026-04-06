@@ -38,7 +38,7 @@ const Projects = () => {
   useEffect(() => {
     if (searchTerm) {
       const filtered = projects.filter((project) =>
-        project.title.toLowerCase().includes(searchTerm.toLowerCase())
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()),
       );
       setFilteredProjects(filtered);
     } else {
@@ -63,7 +63,7 @@ const Projects = () => {
               onClick={() =>
                 window.open(
                   "https://github.com/marioalvesx?tab=repositories",
-                  "_blank"
+                  "_blank",
                 )
               }
             >
@@ -97,7 +97,7 @@ const Projects = () => {
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-10 items-center px-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start px-1">
           {loading ? (
             filteredProjects.map((project, index) => (
               <div
@@ -115,10 +115,10 @@ const Projects = () => {
                         width="500"
                         height="400"
                         decoding="async"
-                        className="rounded-md object-cover w-full h-[300px] transition-transform duration-300 group-hover:scale-105"
+                        className="rounded-md object-cover w-full h-[215px] transition-transform duration-300 group-hover:scale-105"
                         style={{ color: "transparent" }}
                       />
-                      <div className="absolute h-[310px] inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="absolute h-[220px] inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <ExternalLink
                           size="34"
                           color="white"
@@ -127,40 +127,39 @@ const Projects = () => {
                       </div>
                     </>
                   ) : (
-                    <div className="w-full h-[300px] bg-black rounded-md flex items-center justify-center">
+                    <div className="w-full h-[220px] bg-black rounded-md flex items-center justify-center">
                       <span className="text-white">
                         <LanguageTranslation id={"gen.message.wip"} />
                       </span>
                     </div>
                   )}
                 </div>
-                <div className="flex flex-row flex-grow p-4">
-                  <span className="w-full font-semibold tracking-tight text-xl">
+                <div className="flex flex-col flex-grow p-4 gap-2">
+                  <span className="w-full font-semibold tracking-tight text-lg">
                     {project.title}
                   </span>
-                  <div className="text-background flex flex-row items-center gap-2 justify-center w-full group-hover:text-card-foreground transition-colors duration-300">
-                    <span className="w-full tracking-tight text-lg flex items-end justify-end">
-                      <LanguageTranslation id={"projects.view"} />
-                    </span>
-                    <span className="flex items-center justify-center">
-                      <ArrowRight size={20} />
-                    </span>
-                  </div>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {project.description && project.description.length > 100
+                      ? `${project.description.substring(0, 100)}...`
+                      : project.description}
+                  </p>
                 </div>
               </div>
             ))
           ) : (
             <>
-              {[...Array(4)].map((_, index) => (
+              {[...Array(6)].map((_, index) => (
                 <div
                   key={index}
                   className="rounded-xl border bg-card text-card-foreground shadow h-full flex flex-col overflow-hidden group transition-shadow duration-300 relative"
                 >
                   <div className="flex flex-col space-y-1.0 p-0">
-                    <div className="w-full h-[300px] bg-gray-700 animate-pulse rounded-md"></div>
+                    <div className="w-full h-[220px] bg-gray-700 animate-pulse rounded-md"></div>
                   </div>
-                  <div className="flex flex-col flex-grow p-4">
-                    <div className="w-full h-6 bg-gray-800 animate-pulse rounded-md mb-2"></div>
+                  <div className="flex flex-col flex-grow p-4 gap-2">
+                    <div className="w-full h-5 bg-gray-800 animate-pulse rounded-md"></div>
+                    <div className="w-full h-4 bg-gray-700 animate-pulse rounded-md"></div>
+                    <div className="w-2/3 h-4 bg-gray-700 animate-pulse rounded-md"></div>
                   </div>
                 </div>
               ))}
