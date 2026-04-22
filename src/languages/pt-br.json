@@ -53,6 +53,13 @@
   "bento.resume.description": "Baixe meu CV.",
   "bento.contact.title": "Entre em Contato",
   "bento.contact.description": "Tem um projeto em mente?",
+  "bento.about.subtitle": "Quem Sou Eu",
+  "bento.projects.subtitle": "Portfólio",
+  "bento.resume.subtitle": "Baixar CV",
+  "bento.contact.subtitle": "Vamos Conversar",
+  "bento.youtube.subtitle": "Assistir",
+  "bento.youtube.title": "YouTube",
+  "bento.youtube.description": "Assista meus vídeos sobre desenvolvimento e tecnologia.",
   "bento.socials.title": "Conecte-se",
   "bento.socials.description": "Me encontre nas redes sociais."
 }
