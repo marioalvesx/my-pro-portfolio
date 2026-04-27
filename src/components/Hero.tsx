@@ -76,10 +76,111 @@ function BentoRow({
   hoverFg,
 }: BentoRowProps) {
   const [hovered, setHovered] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
 
   // Proporções: pequeno = 35, grande = 65. No hover: 48 / 52.
   const smallFlex = hovered ? 48 : 35;
   const largeFlex = hovered ? 52 : 65;
+
+  /* ---- Mobile: single combined card per row ---- */
+  if (isMobile) {
+    const mobileCard = (
+      <motion.div
+        className="relative overflow-hidden rounded-2xl border cursor-pointer"
+        animate={{
+          backgroundColor: hovered ? hoverBg : "hsl(var(--card))",
+          borderColor: hovered ? hoverBg : "hsl(var(--border))",
+        }}
+        transition={{ duration: 0.4, ease: EASE }}
+        onTouchStart={() => setHovered(true)}
+        onTouchEnd={() => setTimeout(() => setHovered(false), 300)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <div className="flex flex-col gap-3 p-5">
+          <div className="flex items-center justify-between">
+            <motion.span
+              className="text-xs font-mono font-semibold tracking-widest"
+              animate={{
+                color: hovered
+                  ? `${hoverFg}B3`
+                  : "hsl(var(--muted-foreground))",
+              }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              {number}
+            </motion.span>
+            <motion.div
+              className="flex h-10 w-10 items-center justify-center rounded-xl shrink-0"
+              animate={{
+                backgroundColor: hovered
+                  ? hoverBg
+                  : "hsl(var(--primary) / 0.1)",
+                color: hovered ? hoverFg : "hsl(var(--primary))",
+              }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              {icon}
+            </motion.div>
+          </div>
+
+          <div className="space-y-1">
+            <motion.p
+              className="text-sm leading-relaxed"
+              animate={{
+                color: hovered
+                  ? `${hoverFg}CC`
+                  : "hsl(var(--muted-foreground))",
+              }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              {subtitle}
+            </motion.p>
+            <motion.h3
+              className="text-xl font-bold tracking-tight"
+              animate={{
+                color: hovered ? hoverFg : "hsl(var(--foreground))",
+              }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              {title}.
+            </motion.h3>
+          </div>
+
+          <motion.p
+            className="text-sm leading-relaxed"
+            animate={{
+              color: hovered ? `${hoverFg}99` : "hsl(var(--muted-foreground))",
+            }}
+            transition={{ duration: 0.4, ease: EASE }}
+          >
+            {description}
+          </motion.p>
+        </div>
+      </motion.div>
+    );
+
+    if (external) {
+      return (
+        <a href={href} target="_blank" rel="noreferrer" className="block">
+          {mobileCard}
+        </a>
+      );
+    }
+    return (
+      <Link href={href} className="block">
+        {mobileCard}
+      </Link>
+    );
+  }
 
   /* ---------- Card MENOR (muda cor no hover) ---------- */
   const SmallCard = (
@@ -289,7 +390,7 @@ export default function Hero() {
   return (
     <div className="min-h-screen bg-background">
       <motion.div
-        className="mx-auto max-w-8xl px-16 py-14"
+        className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-16 py-8 lg:py-14"
         variants={container}
         initial="hidden"
         animate="show"
@@ -297,12 +398,11 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
           {/* Left Side - Presentation */}
           <motion.section
-            className="p-5 h-full lg:col-span-5 space-y-8 lg:sticky lg:top-24 lg:self-start"
+            className="p-2 lg:p-5 h-full lg:col-span-5 space-y-6 lg:space-y-8 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-6rem)]"
             variants={itemVariants}
-            style={{ maxHeight: "calc(100vh - 6rem)" }}
           >
             <motion.div
-              className="w-full flex items-center justify-between mb-10 pr-12"
+              className="w-full flex items-center justify-between mb-6 lg:mb-10 pr-2 lg:pr-12"
               variants={itemVariants}
             >
               <motion.div className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent-foreground transition duration-300 ease-in">
@@ -318,7 +418,7 @@ export default function Hero() {
               </motion.div>
             </motion.div>
 
-            <div className="h-[90%] flex flex-col pt-[18%] gap-8">
+            <div className="h-auto lg:h-[90%] flex flex-col pt-[6%] lg:pt-[18%] gap-5 lg:gap-8">
               <motion.div
                 className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium tracking-wider"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -334,7 +434,7 @@ export default function Hero() {
 
               <div className="space-y-6">
                 <motion.h1
-                  className="text-3xl sm:text-3xl lg:text-6xl font-bold leading-tight tracking-tight"
+                  className="text-2xl sm:text-3xl lg:text-6xl font-bold leading-tight tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
@@ -342,7 +442,7 @@ export default function Hero() {
                   Mario Alves Neto
                 </motion.h1>
                 <motion.p
-                  className="text-xl text-muted-foreground leading-relaxed w-[85%] pt-5"
+                  className="text-lg lg:text-xl text-muted-foreground leading-relaxed w-full lg:w-[85%] pt-3 lg:pt-5"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
@@ -350,7 +450,7 @@ export default function Hero() {
                   <LanguageTranslation id={"hero.title"} />
                 </motion.p>
                 <motion.p
-                  className="text-base text-muted-foreground leading-relaxed w-[85%]"
+                  className="text-sm lg:text-base text-muted-foreground leading-relaxed w-full lg:w-[85%]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
@@ -392,7 +492,7 @@ export default function Hero() {
             transition={{ duration: 0.4, ease: EASE }}
           >
             <motion.div
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-3 md:gap-5"
               variants={container}
               initial="hidden"
               animate="show"
